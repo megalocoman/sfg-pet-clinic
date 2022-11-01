@@ -10,4 +10,9 @@ public class IndexController {
     public String Index(){
         return "index";
     }
+
+    @RequestMapping("/error")
+    public String errorHandler(){
+        return "notImplementeYet";
+    }
 }
