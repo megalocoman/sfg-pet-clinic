@@ -51,11 +51,11 @@ public class Dataloader implements CommandLineRunner {
         Speciality savedRadiology = specialityService.save(radiology);
 
         Speciality dentistry = new Speciality();
-        radiology.setDescription("Dentistry");
+        dentistry.setDescription("Dentistry");
         Speciality savedDentristy = specialityService.save(dentistry);
 
         Speciality surgery = new Speciality();
-        radiology.setDescription("Surgery");
+        surgery.setDescription("Surgery");
         Speciality savedSurgey = specialityService.save(surgery);
 
         Owner owner1 = new Owner();
@@ -72,13 +72,15 @@ public class Dataloader implements CommandLineRunner {
         pet1.setName("el bebe");
         owner1.getPets().add(pet1);
 
+
+
+        ownerService.save(owner1);
+
         Visit dogVisit = new Visit();
         dogVisit.setPet(pet1);
         dogVisit.setDate(LocalDate.now());
         dogVisit.setDescription("diarhea");
         visitService.save(dogVisit);
-
-        ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("miki");
@@ -94,13 +96,15 @@ public class Dataloader implements CommandLineRunner {
         pet2.setName("el chuchu");
         owner2.getPets().add(pet2);
 
+
+
+        ownerService.save(owner2);
+
         Visit catVisit = new Visit();
         catVisit.setPet(pet2);
         catVisit.setDate(LocalDate.now());
         catVisit.setDescription("gatitis");
         visitService.save(catVisit);
-
-        ownerService.save(owner2);
 
         System.out.println("loaded owners...");
 
