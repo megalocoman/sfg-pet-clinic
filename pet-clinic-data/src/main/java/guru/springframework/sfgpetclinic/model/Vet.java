@@ -12,9 +12,8 @@ import java.util.Set;
 @Entity
 @Setter
 @Getter
+//@Builder
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Table(name = "vets")
 public class Vet extends Person {
     @ManyToMany(fetch = FetchType.EAGER)
@@ -22,4 +21,7 @@ public class Vet extends Person {
             inverseJoinColumns = @JoinColumn(name = "speciality_id"))
     private Set<Speciality> specialty = new HashSet<>();
 
+    public Vet(Long id, String firstName, String lastName) {
+        super(id, firstName, lastName);
+    }
 }
